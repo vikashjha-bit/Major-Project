@@ -8,7 +8,7 @@ function Cards({data, title}){
         <div className=" ">
         <div className="flex w-full flex-wrap bg-[#1F1E24] px-[3%]">
             {data.map((c, i)=>(
-                <Link to={`/${c.media_type || title}/details/${c.id}`} className="relative w-[33vh]  mr-[2%] mb-[2%] key={i} mt-[2%] ml-[2vh] rounded-xl">
+                <Link key={i} to={`/${c.media_type || title}/details/${c.id}`} className="relative w-[33vh]  mr-[2%] mb-[2%] key={i} mt-[2%] ml-[2vh] rounded-xl">
                     <img className="w-[100%] h-[40vh] object-cover" src={c.poster_path || c.backdrop_path|| c.profile_path?`https://image.tmdb.org/t/p/w500${c.poster_path || c.backdrop_path|| c.profile_path}`:noimage} alt=""
                     />
                     <h1 className="text-xl text-zinc-400 mt-3 font-bold">

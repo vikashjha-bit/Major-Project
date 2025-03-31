@@ -11,7 +11,7 @@ function TvDetails(){
         const {id} = useParams();
         const dispatch = useDispatch();
         const{info} = useSelector((state)=>state.tv)
-        console.log(info)
+        //console.log(info)
         useEffect(()=>{
             console.log("Fetching TV details for ID:", id);
             dispatch(asyncloadtv(id));
@@ -80,8 +80,8 @@ function TvDetails(){
                         {info.watchproviders && info.watchproviders.flatrate && (
                             <div className="flex gap-x-2 items-center text-white">
                                 <h1 className="text-lg mr-3">Available on flatrate</h1>
-                            {info.watchproviders.flatrate.map((w)=>(
-                            <img title={w.provider_name} className="w-[5vh] h-[5vh] object-cover rounded-md" src={`https://image.tmdb.org/t/p/original/${w.logo_path}`} alt="" />
+                            {info.watchproviders.flatrate.map((w,i)=>(
+                            <img title={w.provider_name} key={i} className="w-[5vh] h-[5vh] object-cover rounded-md" src={`https://image.tmdb.org/t/p/original/${w.logo_path}`} alt="" />
                         ))}
                             </div>
                         )}
